@@ -25,7 +25,6 @@ steps:
     testAssemblyVer2: '**/bin/Release/net*/samiApp1.dll'
     searchFolder: '$(Build.SourcesDirectory)/Tests'
     testFiltercriteria: 'TestCategory!=Integration'
-    runSettingsFile: '$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/SamiTest1/testSettings.config'
     codeCoverageEnabled: true
     platform: '$(BuildPlatform)'
     configuration: 'Release'
