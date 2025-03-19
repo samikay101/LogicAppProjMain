@@ -1,50 +1,35 @@
 trigger:
   branches:
     include:
-      - main  # Run pipeline on push to main branch
-      - develop  # Run pipeline on push to develop branch
+      - main
+      - develop
 
 pool:
-  vmImage: 'windows-latest'  # Use latest Windows VM for build/test
+  vmImage: 'windows-latest'
 
 steps:
-# Step 1: Install .NET SDK
 - task: UseDotNet@2
   displayName: 'Install .NET SDK'
   inputs:
     packageType: 'sdk'
-    version: '6.x' # Adjust this to match your project’s .NET version
+    version: '6.x'
 
-- task: NuGetCommand@2
-  displayName: 'Configure NuGet Sources'
-  inputs:
-    command: 'custom'
-    arguments: 'sources Add -Name LocalPackages -Source "$(Build.SourcesDirectory)/Tests"'
-
-# Step 3: Restore NuGet Packages Using `nuget.config`
-- script: |
-    dotnet restore "$(Build.SourcesDirectory)/Tests/Tests.sln" --configfile "$(Build.SourcesDirectory)/Tests/nuget.config"
-  displayName: 'Restore NuGet Packages'
-
-# Step 3: Build the Test Project
-- script: dotnet build --configuration Release --no-restore
+- script: dotnet build --configuration Release
   displayName: 'Build Test Solution'
   workingDirectory: ./Tests
 
-# Step 4: Run Unit Tests Using VSTest@3
 - task: VSTest@3
   displayName: 'Run Unit Tests'
   inputs:
     testSelector: 'testAssemblies'
-    testAssemblyVer2: '**/bin/Release/net*/samiApp1.dll'  # Finds the compiled test DLL
+    testAssemblyVer2: '**/bin/Release/net*/samiApp1.dll'
     searchFolder: '$(Build.SourcesDirectory)/Tests'
-    testFiltercriteria: 'TestCategory!=Integration'  # Exclude integration tests
+    testFiltercriteria: 'TestCategory!=Integration'
     runSettingsFile: '$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/SamiTest1/testSettings.config'
     codeCoverageEnabled: true
     platform: '$(BuildPlatform)'
     configuration: 'Release'
 
-# Step 5: Publish Test Results in Azure DevOps
 - task: PublishTestResults@2
   displayName: 'Publish Test Results'
   inputs:
@@ -52,7 +37,6 @@ steps:
     testResultsFiles: '**/TestResults/*.trx'
     mergeTestResults: true
 
-#  Step 6: Publish Code Coverage Report (Optional)
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish Code Coverage Report'
   inputs:
