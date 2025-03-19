@@ -23,7 +23,7 @@ steps:
 
 # Step 3: Restore NuGet Packages Using `nuget.config`
 - script: |
-    dotnet restore --configfile "$(Build.SourcesDirectory)/Tests/nuget.config"
+    dotnet restore "$(Build.SourcesDirectory)/Tests/Tests.sln" --configfile "$(Build.SourcesDirectory)/Tests/nuget.config"
   displayName: 'Restore NuGet Packages'
 
 # Step 3: Build the Test Project
