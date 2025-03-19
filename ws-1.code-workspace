@@ -5,11 +5,11 @@
       "path": "./samiApp1"
     },
     {
-      "name": "Tests",
-      "path": "Tests"
+      "path": ".YMLPipeline"
     },
     {
-      "path": ".YMLPipeline"
+      "name": "Tests",
+      "path": "Tests"
     }
   ]
 }

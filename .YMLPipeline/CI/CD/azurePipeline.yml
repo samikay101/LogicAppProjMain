@@ -1,28 +1,54 @@
 trigger:
-  - main  # or your primary branch
+  branches:
+    include:
+      - main  # Run pipeline on push to main branch
+      - develop  # Run pipeline on push to develop branch
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-latest'  # Use latest Windows VM for build/test
 
 steps:
-  # Step 1: Use .NET SDK (adjust version as needed)
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'sdk'
-      version: '6.x'  # Specify the appropriate .NET version
+# Step 1: Install .NET SDK
+- task: UseDotNet@2
+  displayName: 'Install .NET SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '8.x' # Adjust this to match your project’s .NET version
 
-  # Step 2: Build the Solution(s)
-  - task: VSBuild@1
-    inputs:
-      solution: '**/*.sln'  # Assumes you have a solution file at the root or inside each project folder
-      msbuildArgs: '/p:DeployOnBuild=true'
+# Step 2: Restore NuGet Packages
+- script: dotnet restore
+  displayName: 'Restore NuGet Packages'
+  workingDirectory: ./Tests  # Navigate to Tests folder
 
-  # Step 3: Run Tests with VSTest V3
-  - task: VSTest@2  # VSTest V3 is referenced as VSTest@2 in YAML (the major version might be updated)
-    inputs:
-      testSelector: 'testAssemblies'
-      # Adjust the pattern based on your test project folder structure
-      testAssemblyVer2: '**/TestAppProject/**/bin/**/*test*.dll'
-      searchFolder: '$(System.DefaultWorkingDirectory)'
-      runInParallel: true
-      codeCoverageEnabled: true
+# Step 3: Build the Test Project
+- script: dotnet build --configuration Release --no-restore
+  displayName: 'Build Test Solution'
+  workingDirectory: ./Tests
+
+# Step 4: Run Unit Tests Using VSTest@3
+- task: VSTest@3
+  displayName: 'Run Unit Tests'
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**/bin/Release/net*/samiApp1.dll'  # Finds the compiled test DLL
+    searchFolder: '$(Build.SourcesDirectory)/Tests'
+    testFiltercriteria: 'TestCategory!=Integration'  # Exclude integration tests
+    runSettingsFile: '$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/SamiTest1/testSettings.config'
+    codeCoverageEnabled: true
+    platform: '$(BuildPlatform)'
+    configuration: 'Release'
+
+# Step 5: Publish Test Results in Azure DevOps
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '**/TestResults/*.trx'
+    mergeTestResults: true
+
+#  Step 6: Publish Code Coverage Report (Optional)
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish Code Coverage Report'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '**/coverage.cobertura.xml'
