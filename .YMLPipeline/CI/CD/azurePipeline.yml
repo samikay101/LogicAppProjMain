@@ -13,7 +13,7 @@ steps:
   displayName: 'Install .NET SDK'
   inputs:
     packageType: 'sdk'
-    version: '8.x' # Adjust this to match your project’s .NET version
+    version: '6.x' # Adjust this to match your project’s .NET version
 
 - task: NuGetCommand@2
   displayName: 'Configure NuGet Sources'
