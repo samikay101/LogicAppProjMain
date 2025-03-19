@@ -15,10 +15,16 @@ steps:
     packageType: 'sdk'
     version: '8.x' # Adjust this to match your project’s .NET version
 
-# Step 2: Restore NuGet Packages
-- script: dotnet restore --source "https://api.nuget.org/v3/index.json"
+- task: NuGetCommand@2
+  displayName: 'Configure NuGet Sources'
+  inputs:
+    command: 'custom'
+    arguments: 'sources Add -Name LocalPackages -Source "$(Build.SourcesDirectory)/Tests"'
+
+# Step 3: Restore NuGet Packages Using `nuget.config`
+- script: |
+    dotnet restore --configfile "$(Build.SourcesDirectory)/Tests/nuget.config"
   displayName: 'Restore NuGet Packages'
-  workingDirectory: ./Tests  # Navigate to Tests folder
 
 # Step 3: Build the Test Project
 - script: dotnet build --configuration Release --no-restore
