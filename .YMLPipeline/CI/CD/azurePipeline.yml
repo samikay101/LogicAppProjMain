@@ -1,0 +1,28 @@
+trigger:
+  - main  # or your primary branch
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+  # Step 1: Use .NET SDK (adjust version as needed)
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '6.x'  # Specify the appropriate .NET version
+
+  # Step 2: Build the Solution(s)
+  - task: VSBuild@1
+    inputs:
+      solution: '**/*.sln'  # Assumes you have a solution file at the root or inside each project folder
+      msbuildArgs: '/p:DeployOnBuild=true'
+
+  # Step 3: Run Tests with VSTest V3
+  - task: VSTest@2  # VSTest V3 is referenced as VSTest@2 in YAML (the major version might be updated)
+    inputs:
+      testSelector: 'testAssemblies'
+      # Adjust the pattern based on your test project folder structure
+      testAssemblyVer2: '**/TestAppProject/**/bin/**/*test*.dll'
+      searchFolder: '$(System.DefaultWorkingDirectory)'
+      runInParallel: true
+      codeCoverageEnabled: true
