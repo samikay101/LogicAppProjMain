@@ -16,7 +16,7 @@ steps:
     version: '8.x' # Adjust this to match your project’s .NET version
 
 # Step 2: Restore NuGet Packages
-- script: dotnet restore
+- script: dotnet restore --source "https://api.nuget.org/v3/index.json"
   displayName: 'Restore NuGet Packages'
   workingDirectory: ./Tests  # Navigate to Tests folder
 
