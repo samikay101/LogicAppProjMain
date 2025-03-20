@@ -14,6 +14,12 @@ steps:
     set
   displayName: 'Log Environment Variables'
 
+# Log current working directory.
+- script: |
+    echo "===== Current Directory ====="
+    cd
+  displayName: 'Log Current Directory'
+
 # Install .NET SDK
 - task: UseDotNet@2
   displayName: 'Install .NET SDK'
@@ -59,7 +65,57 @@ steps:
     )
   displayName: 'Debug: Verify testSettings.config Path'
 
-# Run Unit Tests with VSTest (using default settings)
+# Check for key input files expected by TestExecutor.
+# These paths assume your TestExecutor builds file paths like:
+#   Path.Combine(rootDirectory, logicAppName, workflow, "workflow.json")
+# where rootDirectory is read from testSettings.config.
+- script: |
+    echo "===== Checking for workflow.json ====="
+    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/workflow.json" (
+      echo "workflow.json FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/workflow.json"
+      type "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/workflow.json"
+    ) else (
+      echo "ERROR: workflow.json NOT FOUND!"
+    )
+  displayName: 'Debug: Check workflow.json'
+
+- script: |
+    echo "===== Checking for connections.json ====="
+    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/connections.json" (
+      echo "connections.json FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/connections.json"
+      type "$(Build.SourcesDirectory)/Tests/samiApp1/connections.json"
+    ) else (
+      echo "ERROR: connections.json NOT FOUND!"
+    )
+  displayName: 'Debug: Check connections.json'
+
+- script: |
+    echo "===== Checking for parameters.json ====="
+    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/parameters.json" (
+      echo "parameters.json FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/parameters.json"
+      type "$(Build.SourcesDirectory)/Tests/samiApp1/parameters.json"
+    ) else (
+      echo "ERROR: parameters.json NOT FOUND!"
+    )
+  displayName: 'Debug: Check parameters.json'
+
+- script: |
+    echo "===== Checking for local.settings.json ====="
+    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/local.settings.json" (
+      echo "local.settings.json FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/local.settings.json"
+      type "$(Build.SourcesDirectory)/Tests/samiApp1/local.settings.json"
+    ) else (
+      echo "ERROR: local.settings.json NOT FOUND!"
+    )
+  displayName: 'Debug: Check local.settings.json'
+
+# Optional: List all files recursively (if needed for deep debugging)
+- script: |
+    echo "===== Recursive Listing of Build.SourcesDirectory ====="
+    dir "$(Build.SourcesDirectory)" /s
+  displayName: 'Debug: Recursive File Listing'
+
+# Run Unit Tests with VSTest (using default settings) and verbose diagnostics.
 - task: VSTest@3
   displayName: 'Run Unit Tests'
   inputs:
@@ -71,6 +127,7 @@ steps:
     diagnosticsEnabled: true
     platform: '$(BuildPlatform)'
     configuration: 'Release'
+
 - script: |
     echo "===== Unit Tests Execution Completed ====="
     echo "Listing contents of the TestResults directory:"
