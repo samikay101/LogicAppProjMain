@@ -46,19 +46,21 @@ steps:
     echo "Build.SourcesDirectory: $(Build.SourcesDirectory)"
     echo "----- Root Directory -----"
     dir "$(Build.SourcesDirectory)"
+    echo "----- Actual App Directory (samiApp1) -----"
+    dir "$(Build.SourcesDirectory)/samiApp1"
     echo "----- Tests Directory -----"
     dir "$(Build.SourcesDirectory)/Tests"
-    echo "----- samiApp1 Directory -----"
+    echo "----- Test Project Directory (samiApp1) -----"
     dir "$(Build.SourcesDirectory)/Tests/samiApp1"
-    echo "----- samiWorkflow1 Directory -----"
+    echo "----- Test Workflow Directory -----"
     dir "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1"
   displayName: 'Debug: Print Directory Structure'
 
 # Check for testSettings.config file and log its existence.
 - script: |
     echo "===== Checking for testSettings.config ====="
-    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/testSettings.config" (
-      echo "testSettings.config FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/testSettings.config"
+    if exist "$(Build.SourcesDirectory)/samiApp1/samiWorkflow1/testSettings.config" (
+      echo "testSettings.config FOUND at: $(Build.SourcesDirectory)/samiApp1/samiWorkflow1/testSettings.config"
     ) else (
       echo "ERROR: testSettings.config NOT FOUND!"
       exit 1
@@ -66,46 +68,47 @@ steps:
   displayName: 'Debug: Verify testSettings.config Path'
 
 # Check for key input files expected by TestExecutor.
-# These paths assume your TestExecutor builds file paths like:
-#   Path.Combine(rootDirectory, logicAppName, workflow, "workflow.json")
-# where rootDirectory is read from testSettings.config.
 - script: |
     echo "===== Checking for workflow.json ====="
-    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/workflow.json" (
-      echo "workflow.json FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/workflow.json"
-      type "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/workflow.json"
+    if exist "$(Build.SourcesDirectory)/samiApp1/samiWorkflow1/workflow.json" (
+      echo "workflow.json FOUND at: $(Build.SourcesDirectory)/samiApp1/samiWorkflow1/workflow.json"
+      type "$(Build.SourcesDirectory)/samiApp1/samiWorkflow1/workflow.json"
     ) else (
       echo "ERROR: workflow.json NOT FOUND!"
+      exit 1
     )
   displayName: 'Debug: Check workflow.json'
 
 - script: |
     echo "===== Checking for connections.json ====="
-    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/connections.json" (
-      echo "connections.json FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/connections.json"
-      type "$(Build.SourcesDirectory)/Tests/samiApp1/connections.json"
+    if exist "$(Build.SourcesDirectory)/samiApp1/connections.json" (
+      echo "connections.json FOUND at: $(Build.SourcesDirectory)/samiApp1/connections.json"
+      type "$(Build.SourcesDirectory)/samiApp1/connections.json"
     ) else (
       echo "ERROR: connections.json NOT FOUND!"
+      exit 1
     )
   displayName: 'Debug: Check connections.json'
 
 - script: |
     echo "===== Checking for parameters.json ====="
-    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/parameters.json" (
-      echo "parameters.json FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/parameters.json"
-      type "$(Build.SourcesDirectory)/Tests/samiApp1/parameters.json"
+    if exist "$(Build.SourcesDirectory)/samiApp1/parameters.json" (
+      echo "parameters.json FOUND at: $(Build.SourcesDirectory)/samiApp1/parameters.json"
+      type "$(Build.SourcesDirectory)/samiApp1/parameters.json"
     ) else (
       echo "ERROR: parameters.json NOT FOUND!"
+      exit 1
     )
   displayName: 'Debug: Check parameters.json'
 
 - script: |
     echo "===== Checking for local.settings.json ====="
-    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/local.settings.json" (
-      echo "local.settings.json FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/local.settings.json"
-      type "$(Build.SourcesDirectory)/Tests/samiApp1/local.settings.json"
+    if exist "$(Build.SourcesDirectory)/samiApp1/local.settings.json" (
+      echo "local.settings.json FOUND at: $(Build.SourcesDirectory)/samiApp1/local.settings.json"
+      type "$(Build.SourcesDirectory)/samiApp1/local.settings.json"
     ) else (
       echo "ERROR: local.settings.json NOT FOUND!"
+      exit 1
     )
   displayName: 'Debug: Check local.settings.json'
 
