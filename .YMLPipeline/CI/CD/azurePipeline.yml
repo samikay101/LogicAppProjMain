@@ -32,7 +32,7 @@ steps:
 - script: |
     echo "===== Restoring NuGet Packages using local source ====="
     dotnet nuget locals all --clear
-    dotnet restore Tests.sln --configfile nuget.config
+    dotnet restore 
   workingDirectory: ./Tests
   displayName: 'Restore NuGet Packages'
 
