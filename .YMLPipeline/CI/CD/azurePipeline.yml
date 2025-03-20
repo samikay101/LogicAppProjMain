@@ -12,13 +12,13 @@ steps:
   displayName: 'Install .NET SDK'
   inputs:
     packageType: 'sdk'
-    version: '6.x' 
+    version: '6.x'
 
 - script: dotnet build --configuration Release
   displayName: 'Build Test Solution'
   workingDirectory: ./Tests
 
-# Debug Step: Print Directory Structure and Verify `testSettings.config`
+# Debug: Print Directory Structure and Verify testSettings.config
 - script: |
     echo "======================================="
     echo " Build.SourcesDirectory: $(Build.SourcesDirectory) "
@@ -47,6 +47,18 @@ steps:
     )
   displayName: 'Debug: Verify testSettings.config Path'
 
+# Optional: Print Environment Variables for debugging
+- script: |
+    echo "===== Environment Variables ====="
+    set
+  displayName: 'Print Environment Variables'
+
+# Optional: Check for build output (DLL existence)
+- script: |
+    echo "===== Checking Build Output ====="
+    dir "$(Build.SourcesDirectory)/Tests/samiApp1/bin/Release/net6.0/"
+  displayName: 'Verify Build Output Directory'
+
 - task: VSTest@3
   displayName: 'Run Unit Tests'
   inputs:
@@ -54,8 +66,8 @@ steps:
     testAssemblyVer2: '**/bin/Release/net*/samiApp1.dll'
     searchFolder: '$(Build.SourcesDirectory)/Tests'
     testFiltercriteria: 'TestCategory!=Integration'
-    runSettingsFile: '$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/testSettings.config'
     codeCoverageEnabled: true
+    diagnosticsEnabled: true   # Enable verbose logging for troubleshooting
     platform: '$(BuildPlatform)'
     configuration: 'Release'
 
@@ -71,3 +83,16 @@ steps:
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '**/coverage.cobertura.xml'
+
+# Optional: Verify if the code coverage file was generated
+- script: |
+    echo "===== Checking Code Coverage Report ====="
+    dir "$(Build.SourcesDirectory)"
+  displayName: 'Verify Code Coverage File'
+
+# Optional: Publish diagnostic logs as build artifacts
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Diagnostic Logs'
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/diagnostics'
+    ArtifactName: 'diagnostic-logs'
