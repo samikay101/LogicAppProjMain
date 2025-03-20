@@ -8,57 +8,58 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
+# Log environment variables at the very start.
+- script: |
+    echo "===== Environment Variables ====="
+    set
+  displayName: 'Log Environment Variables'
+
+# Install .NET SDK
 - task: UseDotNet@2
   displayName: 'Install .NET SDK'
   inputs:
     packageType: 'sdk'
     version: '6.x'
+- script: echo "Installed .NET SDK version 6.x" 
+  displayName: 'Log .NET SDK Installation'
 
-- script: dotnet build --configuration Release
+# Build Test Solution and log build output directory
+- script: |
+    echo "===== Building Test Solution ====="
+    dotnet build --configuration Release
   displayName: 'Build Test Solution'
   workingDirectory: ./Tests
-
-# Debug: Print Directory Structure and Verify testSettings.config
 - script: |
-    echo "======================================="
-    echo " Build.SourcesDirectory: $(Build.SourcesDirectory) "
-    echo "======================================="
-    
-    echo " Listing root directory: "
+    echo "===== Listing Build Output Directory ====="
+    dir "$(Build.SourcesDirectory)/Tests/samiApp1/bin/Release"
+  displayName: 'Log Build Output Directory'
+
+# Debug: Print Directory Structure for key paths.
+- script: |
+    echo "===== Directory Structure from Build.SourcesDirectory ====="
+    echo "Build.SourcesDirectory: $(Build.SourcesDirectory)"
+    echo "----- Root Directory -----"
     dir "$(Build.SourcesDirectory)"
-
-    echo " Listing Tests directory: "
+    echo "----- Tests Directory -----"
     dir "$(Build.SourcesDirectory)/Tests"
-
-    echo " Listing samiApp1 directory: "
+    echo "----- samiApp1 Directory -----"
     dir "$(Build.SourcesDirectory)/Tests/samiApp1"
-
-    echo " Listing samiWorkflow1 directory: "
+    echo "----- samiWorkflow1 Directory -----"
     dir "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1"
+  displayName: 'Debug: Print Directory Structure'
 
-    echo "======================================="
-    echo " Checking if testSettings.config exists: "
-    
+# Check for testSettings.config file and log its existence.
+- script: |
+    echo "===== Checking for testSettings.config ====="
     if exist "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/testSettings.config" (
-      echo "testSettings.config FOUND!"
+      echo "testSettings.config FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/testSettings.config"
     ) else (
       echo "ERROR: testSettings.config NOT FOUND!"
       exit 1
     )
   displayName: 'Debug: Verify testSettings.config Path'
 
-# Optional: Print Environment Variables for debugging
-- script: |
-    echo "===== Environment Variables ====="
-    set
-  displayName: 'Print Environment Variables'
-
-# Optional: Check for build output (DLL existence)
-- script: |
-    echo "===== Checking Build Output ====="
-    dir "$(Build.SourcesDirectory)/Tests/samiApp1/bin/Release/net6.0/"
-  displayName: 'Verify Build Output Directory'
-
+# Run Unit Tests with VSTest (using default settings)
 - task: VSTest@3
   displayName: 'Run Unit Tests'
   inputs:
@@ -67,32 +68,34 @@ steps:
     searchFolder: '$(Build.SourcesDirectory)/Tests'
     testFiltercriteria: 'TestCategory!=Integration'
     codeCoverageEnabled: true
-    diagnosticsEnabled: true   # Enable verbose logging for troubleshooting
+    diagnosticsEnabled: true
     platform: '$(BuildPlatform)'
     configuration: 'Release'
+- script: |
+    echo "===== Unit Tests Execution Completed ====="
+    echo "Listing contents of the TestResults directory:"
+    dir "$(Agent.TempDirectory)\TestResults"
+  displayName: 'Log Test Results Directory'
 
+# Publish Test Results and log publishing action.
 - task: PublishTestResults@2
   displayName: 'Publish Test Results'
   inputs:
     testResultsFormat: 'VSTest'
     testResultsFiles: '**/TestResults/*.trx'
     mergeTestResults: true
+- script: |
+    echo "===== Test Results Published ====="
+  displayName: 'Log Test Results Publishing'
 
+# Publish Code Coverage Report and log its location.
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish Code Coverage Report'
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '**/coverage.cobertura.xml'
-
-# Optional: Verify if the code coverage file was generated
 - script: |
-    echo "===== Checking Code Coverage Report ====="
+    echo "===== Code Coverage Report Published ====="
+    echo "Listing directory to verify coverage file location:"
     dir "$(Build.SourcesDirectory)"
-  displayName: 'Verify Code Coverage File'
-
-# Optional: Publish diagnostic logs as build artifacts
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Diagnostic Logs'
-  inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/diagnostics'
-    ArtifactName: 'diagnostic-logs'
+  displayName: 'Log Code Coverage Report'
