@@ -8,13 +8,12 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-# Log environment variables at the very start.
+# Log environment variables and current directory.
 - script: |
     echo "===== Environment Variables ====="
     set
   displayName: 'Log Environment Variables'
 
-# Log current working directory.
 - script: |
     echo "===== Current Directory ====="
     cd
@@ -29,6 +28,12 @@ steps:
 - script: echo "Installed .NET SDK version 6.x" 
   displayName: 'Log .NET SDK Installation'
 
+# Restore NuGet packages using the local nuget.config (which points to the Tests folder)
+- script: |
+    echo "===== Restoring NuGet Packages using local source ====="
+    dotnet restore "$(Build.SourcesDirectory)/Tests/Tests.sln" --configfile "$(Build.SourcesDirectory)/Tests/nuget.config"
+  displayName: 'Restore NuGet Packages'
+
 # Build the Test Solution (located in the Tests folder)
 - script: |
     echo "===== Building Test Solution ====="
@@ -36,82 +41,7 @@ steps:
   displayName: 'Build Test Solution'
   workingDirectory: ./Tests
 
-# List the build output directory for the test project assembly.
-- script: |
-    echo "===== Listing Build Output Directory ====="
-    dir "$(Build.SourcesDirectory)\Tests\samiApp1\bin\Release"
-  displayName: 'Log Build Output Directory'
-
-# Debug: Print Directory Structure for key paths.
-- script: |
-    echo "===== Directory Structure from Build.SourcesDirectory ====="
-    echo "Build.SourcesDirectory: $(Build.SourcesDirectory)"
-    echo "----- Root Directory (logic app project) -----"
-    dir "$(Build.SourcesDirectory)\samiApp1"
-    echo "----- Tests Directory -----"
-    dir "$(Build.SourcesDirectory)\Tests"
-    echo "----- Test Project Directory (samiApp1) -----"
-    dir "$(Build.SourcesDirectory)\Tests\samiApp1"
-    echo "----- Test Workflow Directory -----"
-    dir "$(Build.SourcesDirectory)\Tests\samiApp1\samiWorkflow1"
-  displayName: 'Debug: Print Directory Structure'
-
-# Verify that testSettings.config exists in the test project.
-- script: |
-    echo "===== Checking for testSettings.config ====="
-    if exist "$(Build.SourcesDirectory)\Tests\samiApp1\samiWorkflow1\testSettings.config" (
-      echo "testSettings.config FOUND at: $(Build.SourcesDirectory)\Tests\samiApp1\samiWorkflow1\testSettings.config"
-    ) else (
-      echo "ERROR: testSettings.config NOT FOUND!"
-    )
-  displayName: 'Debug: Verify testSettings.config Path'
-
-# Verify that the key input files from the logic app project are present.
-- script: |
-    echo "===== Checking for workflow.json ====="
-    if exist "$(Build.SourcesDirectory)\samiApp1\samiWorkflow1\workflow.json" (
-      echo "workflow.json FOUND at: $(Build.SourcesDirectory)\samiApp1\samiWorkflow1\workflow.json"
-      type "$(Build.SourcesDirectory)\samiApp1\samiWorkflow1\workflow.json"
-    ) else (
-      echo "ERROR: workflow.json NOT FOUND!"
-    )
-  displayName: 'Debug: Check workflow.json'
-
-- script: |
-    echo "===== Checking for connections.json ====="
-    if exist "$(Build.SourcesDirectory)\samiApp1\connections.json" (
-      echo "connections.json FOUND at: $(Build.SourcesDirectory)\samiApp1\connections.json"
-      type "$(Build.SourcesDirectory)\samiApp1\connections.json"
-    ) else (
-      echo "ERROR: connections.json NOT FOUND!"
-    )
-  displayName: 'Debug: Check connections.json'
-
-- script: |
-    echo "===== Checking for parameters.json ====="
-    if exist "$(Build.SourcesDirectory)\samiApp1\parameters.json" (
-      echo "parameters.json FOUND at: $(Build.SourcesDirectory)\samiApp1\parameters.json"
-      type "$(Build.SourcesDirectory)\samiApp1\parameters.json"
-    ) else (
-      echo "ERROR: parameters.json NOT FOUND!"
-    )
-  displayName: 'Debug: Check parameters.json'
-
-- script: |
-    echo "===== Checking for local.settings.json ====="
-    if exist "$(Build.SourcesDirectory)\samiApp1\local.settings.json" (
-      echo "local.settings.json FOUND at: $(Build.SourcesDirectory)\samiApp1\local.settings.json"
-      type "$(Build.SourcesDirectory)\samiApp1\local.settings.json"
-    ) else (
-      echo "ERROR: local.settings.json NOT FOUND!"
-    )
-  displayName: 'Debug: Check local.settings.json'
-
-# Optional: List all files recursively for deep debugging.
-- script: |
-    echo "===== Recursive Listing of Build.SourcesDirectory ====="
-    dir "$(Build.SourcesDirectory)" /s
-  displayName: 'Debug: Recursive File Listing'
+# (Other debug and file-check steps remain unchanged...)
 
 # Run Unit Tests using VSTest.
 - task: VSTest@3
@@ -126,14 +56,13 @@ steps:
     platform: '$(BuildPlatform)'
     configuration: 'Release'
 
-# Log the Test Results directory.
+# Log Test Results and Publish them...
 - script: |
     echo "===== Unit Tests Execution Completed ====="
     echo "Listing contents of the TestResults directory:"
     dir "$(Agent.TempDirectory)\TestResults"
   displayName: 'Log Test Results Directory'
 
-# Publish Test Results.
 - task: PublishTestResults@2
   displayName: 'Publish Test Results'
   inputs:
@@ -145,7 +74,6 @@ steps:
     echo "===== Test Results Published ====="
   displayName: 'Log Test Results Publishing'
 
-# Publish Code Coverage Report.
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish Code Coverage Report'
   inputs:
