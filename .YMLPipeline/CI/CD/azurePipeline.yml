@@ -58,7 +58,7 @@ steps:
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: '**/bin/Release/net*/samiApp1.dll'
-    searchFolder: '$(Build.SourcesDirectory)/Tests'
+    searchFolder: ./Tests
     testFiltercriteria: 'TestCategory!=Integration'
     codeCoverageEnabled: true
     diagnosticsEnabled: true
