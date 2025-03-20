@@ -29,12 +29,14 @@ steps:
 - script: echo "Installed .NET SDK version 6.x" 
   displayName: 'Log .NET SDK Installation'
 
-# Build Test Solution and log build output directory
+# Build the Test Solution (located in the Tests folder)
 - script: |
     echo "===== Building Test Solution ====="
     dotnet build --configuration Release
   displayName: 'Build Test Solution'
   workingDirectory: ./Tests
+
+# List the build output directory for the test project assembly.
 - script: |
     echo "===== Listing Build Output Directory ====="
     dir "$(Build.SourcesDirectory)/Tests/samiApp1/bin/Release"
@@ -44,9 +46,7 @@ steps:
 - script: |
     echo "===== Directory Structure from Build.SourcesDirectory ====="
     echo "Build.SourcesDirectory: $(Build.SourcesDirectory)"
-    echo "----- Root Directory -----"
-    dir "$(Build.SourcesDirectory)"
-    echo "----- Actual App Directory (samiApp1) -----"
+    echo "----- Root Directory (logic app project) -----"
     dir "$(Build.SourcesDirectory)/samiApp1"
     echo "----- Tests Directory -----"
     dir "$(Build.SourcesDirectory)/Tests"
@@ -56,18 +56,18 @@ steps:
     dir "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1"
   displayName: 'Debug: Print Directory Structure'
 
-# Check for testSettings.config file and log its existence.
+# Verify that testSettings.config exists in the test project.
 - script: |
     echo "===== Checking for testSettings.config ====="
-    if exist "$(Build.SourcesDirectory)/samiApp1/samiWorkflow1/testSettings.config" (
-      echo "testSettings.config FOUND at: $(Build.SourcesDirectory)/samiApp1/samiWorkflow1/testSettings.config"
+    if exist "$(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/testSettings.config" (
+      echo "testSettings.config FOUND at: $(Build.SourcesDirectory)/Tests/samiApp1/samiWorkflow1/testSettings.config"
     ) else (
       echo "ERROR: testSettings.config NOT FOUND!"
       exit 1
     )
   displayName: 'Debug: Verify testSettings.config Path'
 
-# Check for key input files expected by TestExecutor.
+# Verify that the key input files from the logic app project are present.
 - script: |
     echo "===== Checking for workflow.json ====="
     if exist "$(Build.SourcesDirectory)/samiApp1/samiWorkflow1/workflow.json" (
@@ -112,17 +112,18 @@ steps:
     )
   displayName: 'Debug: Check local.settings.json'
 
-# Optional: List all files recursively (if needed for deep debugging)
+# Optional: List all files recursively for deep debugging.
 - script: |
     echo "===== Recursive Listing of Build.SourcesDirectory ====="
     dir "$(Build.SourcesDirectory)" /s
   displayName: 'Debug: Recursive File Listing'
 
-# Run Unit Tests with VSTest (using default settings) and verbose diagnostics.
+# Run Unit Tests using VSTest.
 - task: VSTest@3
   displayName: 'Run Unit Tests'
   inputs:
     testSelector: 'testAssemblies'
+    # This pattern looks for the test assembly built in the test project folder.
     testAssemblyVer2: '**/bin/Release/net*/samiApp1.dll'
     searchFolder: '$(Build.SourcesDirectory)/Tests'
     testFiltercriteria: 'TestCategory!=Integration'
@@ -131,29 +132,32 @@ steps:
     platform: '$(BuildPlatform)'
     configuration: 'Release'
 
+# Log the Test Results directory.
 - script: |
     echo "===== Unit Tests Execution Completed ====="
     echo "Listing contents of the TestResults directory:"
     dir "$(Agent.TempDirectory)\TestResults"
   displayName: 'Log Test Results Directory'
 
-# Publish Test Results and log publishing action.
+# Publish Test Results.
 - task: PublishTestResults@2
   displayName: 'Publish Test Results'
   inputs:
     testResultsFormat: 'VSTest'
     testResultsFiles: '**/TestResults/*.trx'
     mergeTestResults: true
+
 - script: |
     echo "===== Test Results Published ====="
   displayName: 'Log Test Results Publishing'
 
-# Publish Code Coverage Report and log its location.
+# Publish Code Coverage Report.
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish Code Coverage Report'
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '**/coverage.cobertura.xml'
+
 - script: |
     echo "===== Code Coverage Report Published ====="
     echo "Listing directory to verify coverage file location:"
