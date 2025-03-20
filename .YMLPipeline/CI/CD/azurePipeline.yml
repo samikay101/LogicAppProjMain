@@ -28,11 +28,20 @@ steps:
 - script: echo "Installed .NET SDK version 6.x" 
   displayName: 'Log .NET SDK Installation'
 
-# Restore NuGet packages using the local nuget.config (which points to the Tests folder)
+# Restore NuGet packages using the local nuget.config in the Tests directory
 - script: |
     echo "===== Restoring NuGet Packages using local source ====="
-    dotnet restore "$(Build.SourcesDirectory)/Tests/Tests.sln" --configfile "$(Build.SourcesDirectory)/Tests/nuget.config"
+    dotnet nuget locals all --clear
+    dotnet restore Tests.sln --configfile nuget.config
+  workingDirectory: "$(Build.SourcesDirectory)/Tests"
   displayName: 'Restore NuGet Packages'
+
+# Debug: List installed packages after restore
+- script: |
+    echo "===== Installed Packages ====="
+    dotnet list Tests.sln package
+  workingDirectory: "$(Build.SourcesDirectory)/Tests"
+  displayName: 'Log Installed Packages'
 
 # Build the Test Solution (located in the Tests folder)
 - script: |
