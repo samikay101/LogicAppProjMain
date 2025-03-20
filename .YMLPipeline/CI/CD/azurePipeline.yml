@@ -33,14 +33,14 @@ steps:
     echo "===== Restoring NuGet Packages using local source ====="
     dotnet nuget locals all --clear
     dotnet restore Tests.sln --configfile nuget.config
-  workingDirectory: "$(Build.SourcesDirectory)/Tests"
+  workingDirectory: ./Tests
   displayName: 'Restore NuGet Packages'
 
 # Debug: List installed packages after restore
 - script: |
     echo "===== Installed Packages ====="
     dotnet list Tests.sln package
-  workingDirectory: "$(Build.SourcesDirectory)/Tests"
+  workingDirectory: ./Tests
   displayName: 'Log Installed Packages'
 
 # Build the Test Solution (located in the Tests folder)
