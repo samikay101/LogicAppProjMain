@@ -594,6 +594,12 @@
           "lib/netstandard1.0/af/ICU4N.resources.dll": {
             "locale": "af"
           },
+          "lib/netstandard1.0/agq-CM/ICU4N.resources.dll": {
+            "locale": "agq-CM"
+          },
+          "lib/netstandard1.0/agq/ICU4N.resources.dll": {
+            "locale": "agq"
+          },
           "lib/netstandard1.0/ak-GH/ICU4N.resources.dll": {
             "locale": "ak-GH"
           },
@@ -693,11 +699,26 @@
           "lib/netstandard1.0/ar/ICU4N.resources.dll": {
             "locale": "ar"
           },
+          "lib/netstandard1.0/ars/ICU4N.resources.dll": {
+            "locale": "ars"
+          },
           "lib/netstandard1.0/as-IN/ICU4N.resources.dll": {
             "locale": "as-IN"
           },
           "lib/netstandard1.0/as/ICU4N.resources.dll": {
             "locale": "as"
+          },
+          "lib/netstandard1.0/asa-TZ/ICU4N.resources.dll": {
+            "locale": "asa-TZ"
+          },
+          "lib/netstandard1.0/asa/ICU4N.resources.dll": {
+            "locale": "asa"
+          },
+          "lib/netstandard1.0/ast-ES/ICU4N.resources.dll": {
+            "locale": "ast-ES"
+          },
+          "lib/netstandard1.0/ast/ICU4N.resources.dll": {
+            "locale": "ast"
           },
           "lib/netstandard1.0/az-AZ/ICU4N.resources.dll": {
             "locale": "az-AZ"
@@ -717,11 +738,29 @@
           "lib/netstandard1.0/az/ICU4N.resources.dll": {
             "locale": "az"
           },
+          "lib/netstandard1.0/bas-CM/ICU4N.resources.dll": {
+            "locale": "bas-CM"
+          },
+          "lib/netstandard1.0/bas/ICU4N.resources.dll": {
+            "locale": "bas"
+          },
           "lib/netstandard1.0/be-BY/ICU4N.resources.dll": {
             "locale": "be-BY"
           },
           "lib/netstandard1.0/be/ICU4N.resources.dll": {
             "locale": "be"
+          },
+          "lib/netstandard1.0/bem-ZM/ICU4N.resources.dll": {
+            "locale": "bem-ZM"
+          },
+          "lib/netstandard1.0/bem/ICU4N.resources.dll": {
+            "locale": "bem"
+          },
+          "lib/netstandard1.0/bez-TZ/ICU4N.resources.dll": {
+            "locale": "bez-TZ"
+          },
+          "lib/netstandard1.0/bez/ICU4N.resources.dll": {
+            "locale": "bez"
           },
           "lib/netstandard1.0/bg-BG/ICU4N.resources.dll": {
             "locale": "bg-BG"
@@ -759,6 +798,12 @@
           "lib/netstandard1.0/br/ICU4N.resources.dll": {
             "locale": "br"
           },
+          "lib/netstandard1.0/brx-IN/ICU4N.resources.dll": {
+            "locale": "brx-IN"
+          },
+          "lib/netstandard1.0/brx/ICU4N.resources.dll": {
+            "locale": "brx"
+          },
           "lib/netstandard1.0/bs-BA/ICU4N.resources.dll": {
             "locale": "bs-BA"
           },
@@ -792,11 +837,41 @@
           "lib/netstandard1.0/ca/ICU4N.resources.dll": {
             "locale": "ca"
           },
+          "lib/netstandard1.0/ccp-BD/ICU4N.resources.dll": {
+            "locale": "ccp-BD"
+          },
+          "lib/netstandard1.0/ccp-IN/ICU4N.resources.dll": {
+            "locale": "ccp-IN"
+          },
+          "lib/netstandard1.0/ccp/ICU4N.resources.dll": {
+            "locale": "ccp"
+          },
           "lib/netstandard1.0/ce-RU/ICU4N.resources.dll": {
             "locale": "ce-RU"
           },
           "lib/netstandard1.0/ce/ICU4N.resources.dll": {
             "locale": "ce"
+          },
+          "lib/netstandard1.0/cgg-UG/ICU4N.resources.dll": {
+            "locale": "cgg-UG"
+          },
+          "lib/netstandard1.0/cgg/ICU4N.resources.dll": {
+            "locale": "cgg"
+          },
+          "lib/netstandard1.0/chr-US/ICU4N.resources.dll": {
+            "locale": "chr-US"
+          },
+          "lib/netstandard1.0/chr/ICU4N.resources.dll": {
+            "locale": "chr"
+          },
+          "lib/netstandard1.0/ckb-IQ/ICU4N.resources.dll": {
+            "locale": "ckb-IQ"
+          },
+          "lib/netstandard1.0/ckb-IR/ICU4N.resources.dll": {
+            "locale": "ckb-IR"
+          },
+          "lib/netstandard1.0/ckb/ICU4N.resources.dll": {
+            "locale": "ckb"
           },
           "lib/netstandard1.0/cs-CZ/ICU4N.resources.dll": {
             "locale": "cs-CZ"
@@ -818,6 +893,12 @@
           },
           "lib/netstandard1.0/da/ICU4N.resources.dll": {
             "locale": "da"
+          },
+          "lib/netstandard1.0/dav-KE/ICU4N.resources.dll": {
+            "locale": "dav-KE"
+          },
+          "lib/netstandard1.0/dav/ICU4N.resources.dll": {
+            "locale": "dav"
           },
           "lib/netstandard1.0/de--PHONEBOOK/ICU4N.resources.dll": {
             "locale": "de--PHONEBOOK"
@@ -846,11 +927,41 @@
           "lib/netstandard1.0/de/ICU4N.resources.dll": {
             "locale": "de"
           },
+          "lib/netstandard1.0/dje-NE/ICU4N.resources.dll": {
+            "locale": "dje-NE"
+          },
+          "lib/netstandard1.0/dje/ICU4N.resources.dll": {
+            "locale": "dje"
+          },
+          "lib/netstandard1.0/dsb-DE/ICU4N.resources.dll": {
+            "locale": "dsb-DE"
+          },
+          "lib/netstandard1.0/dsb/ICU4N.resources.dll": {
+            "locale": "dsb"
+          },
+          "lib/netstandard1.0/dua-CM/ICU4N.resources.dll": {
+            "locale": "dua-CM"
+          },
+          "lib/netstandard1.0/dua/ICU4N.resources.dll": {
+            "locale": "dua"
+          },
+          "lib/netstandard1.0/dyo-SN/ICU4N.resources.dll": {
+            "locale": "dyo-SN"
+          },
+          "lib/netstandard1.0/dyo/ICU4N.resources.dll": {
+            "locale": "dyo"
+          },
           "lib/netstandard1.0/dz-BT/ICU4N.resources.dll": {
             "locale": "dz-BT"
           },
           "lib/netstandard1.0/dz/ICU4N.resources.dll": {
             "locale": "dz"
+          },
+          "lib/netstandard1.0/ebu-KE/ICU4N.resources.dll": {
+            "locale": "ebu-KE"
+          },
+          "lib/netstandard1.0/ebu/ICU4N.resources.dll": {
+            "locale": "ebu"
           },
           "lib/netstandard1.0/ee-GH/ICU4N.resources.dll": {
             "locale": "ee-GH"
@@ -1299,6 +1410,12 @@
           "lib/netstandard1.0/eu/ICU4N.resources.dll": {
             "locale": "eu"
           },
+          "lib/netstandard1.0/ewo-CM/ICU4N.resources.dll": {
+            "locale": "ewo-CM"
+          },
+          "lib/netstandard1.0/ewo/ICU4N.resources.dll": {
+            "locale": "ewo"
+          },
           "lib/netstandard1.0/fa-AF/ICU4N.resources.dll": {
             "locale": "fa-AF"
           },
@@ -1328,6 +1445,12 @@
           },
           "lib/netstandard1.0/fi/ICU4N.resources.dll": {
             "locale": "fi"
+          },
+          "lib/netstandard1.0/fil-PH/ICU4N.resources.dll": {
+            "locale": "fil-PH"
+          },
+          "lib/netstandard1.0/fil/ICU4N.resources.dll": {
+            "locale": "fil"
           },
           "lib/netstandard1.0/fo-DK/ICU4N.resources.dll": {
             "locale": "fo-DK"
@@ -1479,6 +1602,12 @@
           "lib/netstandard1.0/fr/ICU4N.resources.dll": {
             "locale": "fr"
           },
+          "lib/netstandard1.0/fur-IT/ICU4N.resources.dll": {
+            "locale": "fur-IT"
+          },
+          "lib/netstandard1.0/fur/ICU4N.resources.dll": {
+            "locale": "fur"
+          },
           "lib/netstandard1.0/fy-NL/ICU4N.resources.dll": {
             "locale": "fy-NL"
           },
@@ -1503,11 +1632,29 @@
           "lib/netstandard1.0/gl/ICU4N.resources.dll": {
             "locale": "gl"
           },
+          "lib/netstandard1.0/gsw-CH/ICU4N.resources.dll": {
+            "locale": "gsw-CH"
+          },
+          "lib/netstandard1.0/gsw-FR/ICU4N.resources.dll": {
+            "locale": "gsw-FR"
+          },
+          "lib/netstandard1.0/gsw-LI/ICU4N.resources.dll": {
+            "locale": "gsw-LI"
+          },
+          "lib/netstandard1.0/gsw/ICU4N.resources.dll": {
+            "locale": "gsw"
+          },
           "lib/netstandard1.0/gu-IN/ICU4N.resources.dll": {
             "locale": "gu-IN"
           },
           "lib/netstandard1.0/gu/ICU4N.resources.dll": {
             "locale": "gu"
+          },
+          "lib/netstandard1.0/guz-KE/ICU4N.resources.dll": {
+            "locale": "guz-KE"
+          },
+          "lib/netstandard1.0/guz/ICU4N.resources.dll": {
+            "locale": "guz"
           },
           "lib/netstandard1.0/gv-IM/ICU4N.resources.dll": {
             "locale": "gv-IM"
@@ -1526,6 +1673,12 @@
           },
           "lib/netstandard1.0/ha/ICU4N.resources.dll": {
             "locale": "ha"
+          },
+          "lib/netstandard1.0/haw-US/ICU4N.resources.dll": {
+            "locale": "haw-US"
+          },
+          "lib/netstandard1.0/haw/ICU4N.resources.dll": {
+            "locale": "haw"
           },
           "lib/netstandard1.0/he-IL/ICU4N.resources.dll": {
             "locale": "he-IL"
@@ -1547,6 +1700,12 @@
           },
           "lib/netstandard1.0/hr/ICU4N.resources.dll": {
             "locale": "hr"
+          },
+          "lib/netstandard1.0/hsb-DE/ICU4N.resources.dll": {
+            "locale": "hsb-DE"
+          },
+          "lib/netstandard1.0/hsb/ICU4N.resources.dll": {
+            "locale": "hsb"
           },
           "lib/netstandard1.0/hu-HU/ICU4N.resources.dll": {
             "locale": "hu-HU"
@@ -1620,11 +1779,53 @@
           "lib/netstandard1.0/ja/ICU4N.resources.dll": {
             "locale": "ja"
           },
+          "lib/netstandard1.0/jgo-CM/ICU4N.resources.dll": {
+            "locale": "jgo-CM"
+          },
+          "lib/netstandard1.0/jgo/ICU4N.resources.dll": {
+            "locale": "jgo"
+          },
+          "lib/netstandard1.0/jmc-TZ/ICU4N.resources.dll": {
+            "locale": "jmc-TZ"
+          },
+          "lib/netstandard1.0/jmc/ICU4N.resources.dll": {
+            "locale": "jmc"
+          },
           "lib/netstandard1.0/ka-GE/ICU4N.resources.dll": {
             "locale": "ka-GE"
           },
           "lib/netstandard1.0/ka/ICU4N.resources.dll": {
             "locale": "ka"
+          },
+          "lib/netstandard1.0/kab-DZ/ICU4N.resources.dll": {
+            "locale": "kab-DZ"
+          },
+          "lib/netstandard1.0/kab/ICU4N.resources.dll": {
+            "locale": "kab"
+          },
+          "lib/netstandard1.0/kam-KE/ICU4N.resources.dll": {
+            "locale": "kam-KE"
+          },
+          "lib/netstandard1.0/kam/ICU4N.resources.dll": {
+            "locale": "kam"
+          },
+          "lib/netstandard1.0/kde-TZ/ICU4N.resources.dll": {
+            "locale": "kde-TZ"
+          },
+          "lib/netstandard1.0/kde/ICU4N.resources.dll": {
+            "locale": "kde"
+          },
+          "lib/netstandard1.0/kea-CV/ICU4N.resources.dll": {
+            "locale": "kea-CV"
+          },
+          "lib/netstandard1.0/kea/ICU4N.resources.dll": {
+            "locale": "kea"
+          },
+          "lib/netstandard1.0/khq-ML/ICU4N.resources.dll": {
+            "locale": "khq-ML"
+          },
+          "lib/netstandard1.0/khq/ICU4N.resources.dll": {
+            "locale": "khq"
           },
           "lib/netstandard1.0/ki-KE/ICU4N.resources.dll": {
             "locale": "ki-KE"
@@ -1638,11 +1839,23 @@
           "lib/netstandard1.0/kk/ICU4N.resources.dll": {
             "locale": "kk"
           },
+          "lib/netstandard1.0/kkj-CM/ICU4N.resources.dll": {
+            "locale": "kkj-CM"
+          },
+          "lib/netstandard1.0/kkj/ICU4N.resources.dll": {
+            "locale": "kkj"
+          },
           "lib/netstandard1.0/kl-GL/ICU4N.resources.dll": {
             "locale": "kl-GL"
           },
           "lib/netstandard1.0/kl/ICU4N.resources.dll": {
             "locale": "kl"
+          },
+          "lib/netstandard1.0/kln-KE/ICU4N.resources.dll": {
+            "locale": "kln-KE"
+          },
+          "lib/netstandard1.0/kln/ICU4N.resources.dll": {
+            "locale": "kln"
           },
           "lib/netstandard1.0/km-KH/ICU4N.resources.dll": {
             "locale": "km-KH"
@@ -1665,11 +1878,35 @@
           "lib/netstandard1.0/ko/ICU4N.resources.dll": {
             "locale": "ko"
           },
+          "lib/netstandard1.0/kok-IN/ICU4N.resources.dll": {
+            "locale": "kok-IN"
+          },
+          "lib/netstandard1.0/kok/ICU4N.resources.dll": {
+            "locale": "kok"
+          },
           "lib/netstandard1.0/ks-IN/ICU4N.resources.dll": {
             "locale": "ks-IN"
           },
           "lib/netstandard1.0/ks/ICU4N.resources.dll": {
             "locale": "ks"
+          },
+          "lib/netstandard1.0/ksb-TZ/ICU4N.resources.dll": {
+            "locale": "ksb-TZ"
+          },
+          "lib/netstandard1.0/ksb/ICU4N.resources.dll": {
+            "locale": "ksb"
+          },
+          "lib/netstandard1.0/ksf-CM/ICU4N.resources.dll": {
+            "locale": "ksf-CM"
+          },
+          "lib/netstandard1.0/ksf/ICU4N.resources.dll": {
+            "locale": "ksf"
+          },
+          "lib/netstandard1.0/ksh-DE/ICU4N.resources.dll": {
+            "locale": "ksh-DE"
+          },
+          "lib/netstandard1.0/ksh/ICU4N.resources.dll": {
+            "locale": "ksh"
           },
           "lib/netstandard1.0/kw-GB/ICU4N.resources.dll": {
             "locale": "kw-GB"
@@ -1683,6 +1920,12 @@
           "lib/netstandard1.0/ky/ICU4N.resources.dll": {
             "locale": "ky"
           },
+          "lib/netstandard1.0/lag-TZ/ICU4N.resources.dll": {
+            "locale": "lag-TZ"
+          },
+          "lib/netstandard1.0/lag/ICU4N.resources.dll": {
+            "locale": "lag"
+          },
           "lib/netstandard1.0/lb-LU/ICU4N.resources.dll": {
             "locale": "lb-LU"
           },
@@ -1694,6 +1937,12 @@
           },
           "lib/netstandard1.0/lg/ICU4N.resources.dll": {
             "locale": "lg"
+          },
+          "lib/netstandard1.0/lkt-US/ICU4N.resources.dll": {
+            "locale": "lkt-US"
+          },
+          "lib/netstandard1.0/lkt/ICU4N.resources.dll": {
+            "locale": "lkt"
           },
           "lib/netstandard1.0/ln-AO/ICU4N.resources.dll": {
             "locale": "ln-AO"
@@ -1716,6 +1965,15 @@
           "lib/netstandard1.0/lo/ICU4N.resources.dll": {
             "locale": "lo"
           },
+          "lib/netstandard1.0/lrc-IQ/ICU4N.resources.dll": {
+            "locale": "lrc-IQ"
+          },
+          "lib/netstandard1.0/lrc-IR/ICU4N.resources.dll": {
+            "locale": "lrc-IR"
+          },
+          "lib/netstandard1.0/lrc/ICU4N.resources.dll": {
+            "locale": "lrc"
+          },
           "lib/netstandard1.0/lt-LT/ICU4N.resources.dll": {
             "locale": "lt-LT"
           },
@@ -1728,17 +1986,62 @@
           "lib/netstandard1.0/lu/ICU4N.resources.dll": {
             "locale": "lu"
           },
+          "lib/netstandard1.0/luo-KE/ICU4N.resources.dll": {
+            "locale": "luo-KE"
+          },
+          "lib/netstandard1.0/luo/ICU4N.resources.dll": {
+            "locale": "luo"
+          },
+          "lib/netstandard1.0/luy-KE/ICU4N.resources.dll": {
+            "locale": "luy-KE"
+          },
+          "lib/netstandard1.0/luy/ICU4N.resources.dll": {
+            "locale": "luy"
+          },
           "lib/netstandard1.0/lv-LV/ICU4N.resources.dll": {
             "locale": "lv-LV"
           },
           "lib/netstandard1.0/lv/ICU4N.resources.dll": {
             "locale": "lv"
           },
+          "lib/netstandard1.0/mas-KE/ICU4N.resources.dll": {
+            "locale": "mas-KE"
+          },
+          "lib/netstandard1.0/mas-TZ/ICU4N.resources.dll": {
+            "locale": "mas-TZ"
+          },
+          "lib/netstandard1.0/mas/ICU4N.resources.dll": {
+            "locale": "mas"
+          },
+          "lib/netstandard1.0/mer-KE/ICU4N.resources.dll": {
+            "locale": "mer-KE"
+          },
+          "lib/netstandard1.0/mer/ICU4N.resources.dll": {
+            "locale": "mer"
+          },
+          "lib/netstandard1.0/mfe-MU/ICU4N.resources.dll": {
+            "locale": "mfe-MU"
+          },
+          "lib/netstandard1.0/mfe/ICU4N.resources.dll": {
+            "locale": "mfe"
+          },
           "lib/netstandard1.0/mg-MG/ICU4N.resources.dll": {
             "locale": "mg-MG"
           },
           "lib/netstandard1.0/mg/ICU4N.resources.dll": {
             "locale": "mg"
+          },
+          "lib/netstandard1.0/mgh-MZ/ICU4N.resources.dll": {
+            "locale": "mgh-MZ"
+          },
+          "lib/netstandard1.0/mgh/ICU4N.resources.dll": {
+            "locale": "mgh"
+          },
+          "lib/netstandard1.0/mgo-CM/ICU4N.resources.dll": {
+            "locale": "mgo-CM"
+          },
+          "lib/netstandard1.0/mgo/ICU4N.resources.dll": {
+            "locale": "mgo"
           },
           "lib/netstandard1.0/mk-MK/ICU4N.resources.dll": {
             "locale": "mk-MK"
@@ -1785,11 +2088,29 @@
           "lib/netstandard1.0/mt/ICU4N.resources.dll": {
             "locale": "mt"
           },
+          "lib/netstandard1.0/mua-CM/ICU4N.resources.dll": {
+            "locale": "mua-CM"
+          },
+          "lib/netstandard1.0/mua/ICU4N.resources.dll": {
+            "locale": "mua"
+          },
           "lib/netstandard1.0/my-MM/ICU4N.resources.dll": {
             "locale": "my-MM"
           },
           "lib/netstandard1.0/my/ICU4N.resources.dll": {
             "locale": "my"
+          },
+          "lib/netstandard1.0/mzn-IR/ICU4N.resources.dll": {
+            "locale": "mzn-IR"
+          },
+          "lib/netstandard1.0/mzn/ICU4N.resources.dll": {
+            "locale": "mzn"
+          },
+          "lib/netstandard1.0/naq-NA/ICU4N.resources.dll": {
+            "locale": "naq-NA"
+          },
+          "lib/netstandard1.0/naq/ICU4N.resources.dll": {
+            "locale": "naq"
           },
           "lib/netstandard1.0/nb-NO/ICU4N.resources.dll": {
             "locale": "nb-NO"
@@ -1805,6 +2126,15 @@
           },
           "lib/netstandard1.0/nd/ICU4N.resources.dll": {
             "locale": "nd"
+          },
+          "lib/netstandard1.0/nds-DE/ICU4N.resources.dll": {
+            "locale": "nds-DE"
+          },
+          "lib/netstandard1.0/nds-NL/ICU4N.resources.dll": {
+            "locale": "nds-NL"
+          },
+          "lib/netstandard1.0/nds/ICU4N.resources.dll": {
+            "locale": "nds"
           },
           "lib/netstandard1.0/ne-IN/ICU4N.resources.dll": {
             "locale": "ne-IN"
@@ -1839,11 +2169,23 @@
           "lib/netstandard1.0/nl/ICU4N.resources.dll": {
             "locale": "nl"
           },
+          "lib/netstandard1.0/nmg-CM/ICU4N.resources.dll": {
+            "locale": "nmg-CM"
+          },
+          "lib/netstandard1.0/nmg/ICU4N.resources.dll": {
+            "locale": "nmg"
+          },
           "lib/netstandard1.0/nn-NO/ICU4N.resources.dll": {
             "locale": "nn-NO"
           },
           "lib/netstandard1.0/nn/ICU4N.resources.dll": {
             "locale": "nn"
+          },
+          "lib/netstandard1.0/nnh-CM/ICU4N.resources.dll": {
+            "locale": "nnh-CM"
+          },
+          "lib/netstandard1.0/nnh/ICU4N.resources.dll": {
+            "locale": "nnh"
           },
           "lib/netstandard1.0/no-NO-NY/ICU4N.resources.dll": {
             "locale": "no-NO-NY"
@@ -1853,6 +2195,18 @@
           },
           "lib/netstandard1.0/no/ICU4N.resources.dll": {
             "locale": "no"
+          },
+          "lib/netstandard1.0/nus-SS/ICU4N.resources.dll": {
+            "locale": "nus-SS"
+          },
+          "lib/netstandard1.0/nus/ICU4N.resources.dll": {
+            "locale": "nus"
+          },
+          "lib/netstandard1.0/nyn-UG/ICU4N.resources.dll": {
+            "locale": "nyn-UG"
+          },
+          "lib/netstandard1.0/nyn/ICU4N.resources.dll": {
+            "locale": "nyn"
           },
           "lib/netstandard1.0/om-ET/ICU4N.resources.dll": {
             "locale": "om-ET"
@@ -1983,6 +2337,12 @@
           "lib/netstandard1.0/ro/ICU4N.resources.dll": {
             "locale": "ro"
           },
+          "lib/netstandard1.0/rof-TZ/ICU4N.resources.dll": {
+            "locale": "rof-TZ"
+          },
+          "lib/netstandard1.0/rof/ICU4N.resources.dll": {
+            "locale": "rof"
+          },
           "lib/netstandard1.0/ru-BY/ICU4N.resources.dll": {
             "locale": "ru-BY"
           },
@@ -2010,6 +2370,30 @@
           "lib/netstandard1.0/rw/ICU4N.resources.dll": {
             "locale": "rw"
           },
+          "lib/netstandard1.0/rwk-TZ/ICU4N.resources.dll": {
+            "locale": "rwk-TZ"
+          },
+          "lib/netstandard1.0/rwk/ICU4N.resources.dll": {
+            "locale": "rwk"
+          },
+          "lib/netstandard1.0/sah-RU/ICU4N.resources.dll": {
+            "locale": "sah-RU"
+          },
+          "lib/netstandard1.0/sah/ICU4N.resources.dll": {
+            "locale": "sah"
+          },
+          "lib/netstandard1.0/saq-KE/ICU4N.resources.dll": {
+            "locale": "saq-KE"
+          },
+          "lib/netstandard1.0/saq/ICU4N.resources.dll": {
+            "locale": "saq"
+          },
+          "lib/netstandard1.0/sbp-TZ/ICU4N.resources.dll": {
+            "locale": "sbp-TZ"
+          },
+          "lib/netstandard1.0/sbp/ICU4N.resources.dll": {
+            "locale": "sbp"
+          },
           "lib/netstandard1.0/se-FI/ICU4N.resources.dll": {
             "locale": "se-FI"
           },
@@ -2021,6 +2405,18 @@
           },
           "lib/netstandard1.0/se/ICU4N.resources.dll": {
             "locale": "se"
+          },
+          "lib/netstandard1.0/seh-MZ/ICU4N.resources.dll": {
+            "locale": "seh-MZ"
+          },
+          "lib/netstandard1.0/seh/ICU4N.resources.dll": {
+            "locale": "seh"
+          },
+          "lib/netstandard1.0/ses-ML/ICU4N.resources.dll": {
+            "locale": "ses-ML"
+          },
+          "lib/netstandard1.0/ses/ICU4N.resources.dll": {
+            "locale": "ses"
           },
           "lib/netstandard1.0/sg-CF/ICU4N.resources.dll": {
             "locale": "sg-CF"
@@ -2040,6 +2436,24 @@
           "lib/netstandard1.0/sh/ICU4N.resources.dll": {
             "locale": "sh"
           },
+          "lib/netstandard1.0/shi-Latn-MA/ICU4N.resources.dll": {
+            "locale": "shi-Latn-MA"
+          },
+          "lib/netstandard1.0/shi-Latn/ICU4N.resources.dll": {
+            "locale": "shi-Latn"
+          },
+          "lib/netstandard1.0/shi-MA/ICU4N.resources.dll": {
+            "locale": "shi-MA"
+          },
+          "lib/netstandard1.0/shi-Tfng-MA/ICU4N.resources.dll": {
+            "locale": "shi-Tfng-MA"
+          },
+          "lib/netstandard1.0/shi-Tfng/ICU4N.resources.dll": {
+            "locale": "shi-Tfng"
+          },
+          "lib/netstandard1.0/shi/ICU4N.resources.dll": {
+            "locale": "shi"
+          },
           "lib/netstandard1.0/si-LK/ICU4N.resources.dll": {
             "locale": "si-LK"
           },
@@ -2057,6 +2471,12 @@
           },
           "lib/netstandard1.0/sl/ICU4N.resources.dll": {
             "locale": "sl"
+          },
+          "lib/netstandard1.0/smn-FI/ICU4N.resources.dll": {
+            "locale": "smn-FI"
+          },
+          "lib/netstandard1.0/smn/ICU4N.resources.dll": {
+            "locale": "smn"
           },
           "lib/netstandard1.0/sn-ZW/ICU4N.resources.dll": {
             "locale": "sn-ZW"
@@ -2202,6 +2622,15 @@
           "lib/netstandard1.0/te/ICU4N.resources.dll": {
             "locale": "te"
           },
+          "lib/netstandard1.0/teo-KE/ICU4N.resources.dll": {
+            "locale": "teo-KE"
+          },
+          "lib/netstandard1.0/teo-UG/ICU4N.resources.dll": {
+            "locale": "teo-UG"
+          },
+          "lib/netstandard1.0/teo/ICU4N.resources.dll": {
+            "locale": "teo"
+          },
           "lib/netstandard1.0/tg-TJ/ICU4N.resources.dll": {
             "locale": "tg-TJ"
           },
@@ -2253,6 +2682,18 @@
           "lib/netstandard1.0/tt/ICU4N.resources.dll": {
             "locale": "tt"
           },
+          "lib/netstandard1.0/twq-NE/ICU4N.resources.dll": {
+            "locale": "twq-NE"
+          },
+          "lib/netstandard1.0/twq/ICU4N.resources.dll": {
+            "locale": "twq"
+          },
+          "lib/netstandard1.0/tzm-MA/ICU4N.resources.dll": {
+            "locale": "tzm-MA"
+          },
+          "lib/netstandard1.0/tzm/ICU4N.resources.dll": {
+            "locale": "tzm"
+          },
           "lib/netstandard1.0/ug-CN/ICU4N.resources.dll": {
             "locale": "ug-CN"
           },
@@ -2301,17 +2742,59 @@
           "lib/netstandard1.0/uz/ICU4N.resources.dll": {
             "locale": "uz"
           },
+          "lib/netstandard1.0/vai-LR/ICU4N.resources.dll": {
+            "locale": "vai-LR"
+          },
+          "lib/netstandard1.0/vai-Latn-LR/ICU4N.resources.dll": {
+            "locale": "vai-Latn-LR"
+          },
+          "lib/netstandard1.0/vai-Latn/ICU4N.resources.dll": {
+            "locale": "vai-Latn"
+          },
+          "lib/netstandard1.0/vai-Vaii-LR/ICU4N.resources.dll": {
+            "locale": "vai-Vaii-LR"
+          },
+          "lib/netstandard1.0/vai-Vaii/ICU4N.resources.dll": {
+            "locale": "vai-Vaii"
+          },
+          "lib/netstandard1.0/vai/ICU4N.resources.dll": {
+            "locale": "vai"
+          },
           "lib/netstandard1.0/vi-VN/ICU4N.resources.dll": {
             "locale": "vi-VN"
           },
           "lib/netstandard1.0/vi/ICU4N.resources.dll": {
             "locale": "vi"
           },
+          "lib/netstandard1.0/vun-TZ/ICU4N.resources.dll": {
+            "locale": "vun-TZ"
+          },
+          "lib/netstandard1.0/vun/ICU4N.resources.dll": {
+            "locale": "vun"
+          },
+          "lib/netstandard1.0/wae-CH/ICU4N.resources.dll": {
+            "locale": "wae-CH"
+          },
+          "lib/netstandard1.0/wae/ICU4N.resources.dll": {
+            "locale": "wae"
+          },
           "lib/netstandard1.0/wo-SN/ICU4N.resources.dll": {
             "locale": "wo-SN"
           },
           "lib/netstandard1.0/wo/ICU4N.resources.dll": {
             "locale": "wo"
+          },
+          "lib/netstandard1.0/xog-UG/ICU4N.resources.dll": {
+            "locale": "xog-UG"
+          },
+          "lib/netstandard1.0/xog/ICU4N.resources.dll": {
+            "locale": "xog"
+          },
+          "lib/netstandard1.0/yav-CM/ICU4N.resources.dll": {
+            "locale": "yav-CM"
+          },
+          "lib/netstandard1.0/yav/ICU4N.resources.dll": {
+            "locale": "yav"
           },
           "lib/netstandard1.0/yi-001/ICU4N.resources.dll": {
             "locale": "yi-001"
@@ -2327,6 +2810,33 @@
           },
           "lib/netstandard1.0/yo/ICU4N.resources.dll": {
             "locale": "yo"
+          },
+          "lib/netstandard1.0/yue-CN/ICU4N.resources.dll": {
+            "locale": "yue-CN"
+          },
+          "lib/netstandard1.0/yue-HK/ICU4N.resources.dll": {
+            "locale": "yue-HK"
+          },
+          "lib/netstandard1.0/yue-Hans-CN/ICU4N.resources.dll": {
+            "locale": "yue-Hans-CN"
+          },
+          "lib/netstandard1.0/yue-Hans/ICU4N.resources.dll": {
+            "locale": "yue-Hans"
+          },
+          "lib/netstandard1.0/yue-Hant-HK/ICU4N.resources.dll": {
+            "locale": "yue-Hant-HK"
+          },
+          "lib/netstandard1.0/yue-Hant/ICU4N.resources.dll": {
+            "locale": "yue-Hant"
+          },
+          "lib/netstandard1.0/yue/ICU4N.resources.dll": {
+            "locale": "yue"
+          },
+          "lib/netstandard1.0/zgh-MA/ICU4N.resources.dll": {
+            "locale": "zgh-MA"
+          },
+          "lib/netstandard1.0/zgh/ICU4N.resources.dll": {
+            "locale": "zgh"
           },
           "lib/netstandard1.0/zh-CN/ICU4N.resources.dll": {
             "locale": "zh-CN"
@@ -22451,8 +22961,8 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Users\\samikarakra\\Desktop\\Testing-Codeful\\e2eMarch183\\ws-1\\Tests": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/azurelogicappsautomatedtesting/api/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -22470,7 +22980,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net6.0": {
@@ -22517,8 +23027,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://www.myget.org/F/azurelogicappsautomatedtesting/api/v3/index.json."
+    }
+  ]
 }
