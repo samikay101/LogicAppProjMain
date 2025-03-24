@@ -1,44 +1,53 @@
 {
-    "definition": {
-        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-        "actions": {
-            "Read_a_resource_group": {
-                "type": "ApiConnection",
-                "inputs": {
-                    "host": {
-                        "connection": {
-                            "referenceName": "arm"
-                        }
-                    },
-                    "method": "get",
-                    "path": "/subscriptions/@{encodeURIComponent('80d4fe69-c95b-4dd2-a938-9250f1c8ab03')}/resourcegroups/@{encodeURIComponent('SamiEastUS2EUAP')}",
-                    "queries": {
-                        "x-ms-api-version": "2016-06-01"
-                    }
-                },
-                "runAfter": {}
-            },
-            "Response": {
-                "type": "Response",
-                "kind": "Http",
-                "inputs": {
-                    "statusCode": 200
-                },
-                "runAfter": {
-                    "Read_a_resource_group": [
-                        "SUCCEEDED"
-                    ]
-                }
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Read_a_resource_group": {
+        "type": "ApiConnection",
+        "inputs": {
+          "host": {
+            "connection": {
+              "referenceName": "arm"
             }
+          },
+          "method": "get",
+          "path": "/subscriptions/@{encodeURIComponent('80d4fe69-c95b-4dd2-a938-9250f1c8ab03')}/resourcegroups/@{encodeURIComponent('SamiEastUS2EUAP')}",
+          "queries": {
+            "x-ms-api-version": "2016-06-01"
+          }
         },
-        "contentVersion": "1.0.0.0",
-        "outputs": {},
-        "triggers": {
-            "When_a_HTTP_request_is_received": {
-                "type": "Request",
-                "kind": "Http"
-            }
+        "runAfter": {}
+      },
+      "Response": {
+        "type": "Response",
+        "kind": "Http",
+        "inputs": {
+          "statusCode": 200
+        },
+        "runAfter": {
+          "Read_a_resource_group": [
+            "SUCCEEDED"
+          ]
         }
+      }
     },
-    "kind": "Stateful"
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "triggers": {
+      "When_a_HTTP_request_is_received": {
+        "type": "Request",
+        "kind": "Http"
+      }
+    },
+    "metadata": {
+      "IaCMetadata": {
+        "IaCGenerationDate": "2025-03-24T15:22:17.462Z",
+        "IaCWorkflowCorrelationId": "21b6932c-3ed9-4800-a15a-fbc157b25b43",
+        "LogicAppsExtensionVersion": "5.48.0",
+        "LogicAppsPinnedBundle": false,
+        "LogicAppsCurrentBundleVersion": "1.114.22"
+      }
+    }
+  },
+  "kind": "Stateful"
 }

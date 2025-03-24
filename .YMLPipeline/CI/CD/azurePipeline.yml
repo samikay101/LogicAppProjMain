@@ -19,6 +19,13 @@ steps:
     cd
   displayName: 'Log Current Directory'
 
+  # Log full structure of the Tests folder
+- script: |
+    echo "===== Logging Directory Structure for Tests Folder ====="
+    cd Tests
+    tree /F /A
+  displayName: 'Log Tests Folder Structure'
+
 # Install .NET SDK
 - task: UseDotNet@2
   displayName: 'Install .NET SDK'
